@@ -11,21 +11,21 @@ class BattleNet
 	private $properties;
 	
 	private $profile_properties = array(
-			 'nick' => 	'/<title>(.*?) - StarCraft/sim',
-			,'season' => 	'/stat-block.*?>(\d+)<.*?stat-block.*?>\d+.\d+<.*?stat-block.*?>\d+<.*?stat-block.*?race">.*?</sim',
-			,'mode' => 	'/stat-block.*?>\d+<.*?stat-block.*?>(\d+.\d+)<.*?stat-block.*?>\d+<.*?stat-block.*?race">.*?</sim',
-			,'carrier' => 	'/stat-block.*?>\d+<.*?stat-block.*?>\d+.\d+<.*?stat-block.*?>(\d+)<.*?stat-block.*?race">.*?</sim',
-			,'race' => 	'/stat-block.*?>\d+<.*?stat-block.*?>\d+.\d+<.*?stat-block.*?>\d+<.*?stat-block.*?race">(.*?)</sim',
+			 'nick' => 	'/<title>(.*?) - StarCraft/sim'
+			,'season' => 	'/stat-block.*?<h2>(\d+)<.*?<h2>.*?<.*?<h2>\d+<.*?race">.*?</sim'
+			,'mode' => 	'/stat-block.*?<h2>\d+<.*?<h2>(.*?)<.*?<h2>\d+<.*?race">.*?</sim'
+			,'carrier' => 	'/stat-block.*?<h2>\d+<.*?<h2>.*?<.*?<h2>(\d+)<.*?race">.*?</sim'
+			,'race' => 	'/stat-block.*?<h2>\d+<.*?<h2>.*?<.*?<h2>\d+<.*?race">(.*?)</sim'
 			                        
 			,'leagues' =>	'/"mode">(.*?)<.*?league-name.*?>(.*?)</sim'
 		);
 		
 	private $league_properties = array(
-			'position' => 	'/id="current-rank.*?>(\d+)-.*?<tr/sim',
+			'position' => 	'/id="current-rank.*?>(\d+).*?<tr/sim',
 			'score' => 	'/id="current-rank.*?center">(\d+).*?<tr/sim',
 			'wins' => 	'/id="current-rank.*?center">\d+?<.*?center">(\d+)<.*?<tr/sim',
 			'losses' => 	'/id="current-rank.*?center">\d+<(?:(?!<\/tr).)*center">\d+(?:(?!<\/tr).)*center">(\d+)/sim',
-			'joined' => 	'/id="current-rank.*?>.*?(\d*.\d*.\d*)/sim',
+			'joined' => 	'/id="current-rank.*?>.*?(\d+.\d+.\d+)/sim',
 			'bonuspool' =>	'/bonus-pool".*?>(\d+)</sim'
 		);
 
