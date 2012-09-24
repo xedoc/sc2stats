@@ -24,7 +24,7 @@ class BattleNet
 			'position' => 	'/id="current-rank.*?>(\d+)-.*?<tr/sim',
 			'score' => 	'/id="current-rank.*?center">(\d+).*?<tr/sim',
 			'wins' => 	'/id="current-rank.*?center">\d+?<.*?center">(\d+)<.*?<tr/sim',
-			'losses' => 	'/id="current-rank.*?center">\d+<(?:(?!tr).)*center">\d+(?:(?!tr).)*center">(\d+)/sim',
+			'losses' => 	'/id="current-rank.*?center">\d+<(?:(?!<\/tr).)*center">\d+(?:(?!<\/tr).)*center">(\d+)/sim',
 			'joined' => 	'/id="current-rank.*?>.*?(\d*\.\d*\.\d*)/sim'
 		);
 
