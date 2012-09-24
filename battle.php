@@ -38,7 +38,7 @@ class BattleNet
 		$this->Refresh();
 	}
 		
-	private function Refresh() {
+	public function Refresh() {
 		$this->profilePage = $this->wc->get( $this->profileUrl );
 		$this->rankPage = $this->wc->get( $this->rankUrl );
 		$this->properties = Array();
