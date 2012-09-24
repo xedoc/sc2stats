@@ -13,14 +13,20 @@ foreach( $b->leagues as $key => $value ) {
 }
 
 
-$template = "Ник: %s,<br> Раса: %s,<br> Режим: %s,<br> Карьерных игр: %s,<br> Сезонных игр: %s,<br> Лиги: %s<br>";
+$template = "Ник: %s,<br> Раса: %s,<br> Режим: %s,<br> Карьерных игр: %s,<br> Сезонных игр: %s,<br> Лиги: %s,<br> Место: %s,<br> Очки: %s,<br> Победы: %s,<br> Поражения: %s,<br> Присоединился: %s<br>";
 echo sprintf( $template, 
         $b->nick,
 	$b->race,
 	$b->mode,
 	$b->carrier,
-	$b->season,
-	implode(",", $leagues ));
+	$b->season,	
+	implode(",", $leagues ),
+	$b->position,
+	$b->score,
+	$b->wins,
+	$b->losses,
+	$b->joined	
+	);
 ?>
 
 
