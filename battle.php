@@ -21,10 +21,10 @@ class BattleNet
 		);
 		
 	private $league_properties = array(
-			'position' => 	'/id="current-rank.*?>(\d+)/sim',
-			'score' => 	'/id="current-rank.*?center">(\d+)/sim',
-			'wins' => 	'/id="current-rank.*?>\d+?<.*?(\d+)</sim',
-			'losses' => 	'/id="current-rank.*?>\d+<.*?\d+<.*?(\d+)</sim',
+			'position' => 	'/id="current-rank.*?>(\d+)-.*?<tr/sim',
+			'score' => 	'/id="current-rank.*?center">(\d+).*?<tr/sim',
+			'wins' => 	'/id="current-rank.*?center">\d+?<.*?center">(\d+)<.*?<tr/sim',
+			'losses' => 	'/id="current-rank.*?center">\d+<(?:(?!tr).)*center">\d+(?:(?!tr).)*center">(\d+)/sim',
 			'joined' => 	'/id="current-rank.*?>.*?(\d*\.\d*\.\d*)/sim'
 		);
 

@@ -3,7 +3,9 @@
 <?php
 require_once('battle.php');
 
-$profileUrl = "http://eu.battle.net/sc2/ru/profile/543774/1/FXOLoWeLy/";
+//$profileUrl = "http://eu.battle.net/sc2/ru/profile/543774/1/FXOLoWeLy/";
+
+$profileUrl = "http://eu.battle.net/sc2/ru/profile/385468/1/PhAn/";
 
 $b = new BattleNet( $profileUrl );
 
