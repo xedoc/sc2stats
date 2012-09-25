@@ -1,10 +1,7 @@
-<meta http-equiv="content-type" content="charset=utf-8"/>
-
 <?php
 require_once('battle.php');
 
 $profileUrl = "http://eu.battle.net/sc2/en/profile/543774/1/FXOLoWeLy/";
-
 //$profileUrl = "http://eu.battle.net/sc2/en/profile/385468/1/PhAn/";
 
 $b = new BattleNet( $profileUrl );
@@ -14,22 +11,44 @@ foreach( $b->leagues as $key => $value ) {
 	$leagues[] = $key.'-'.$value;
 }
 
-
-$template = "Ник: %s,<br> Раса: %s,<br> Режим: %s,<br> Карьерных игр: %s,<br> Сезонных игр: %s,<br> Лиги: %s,<br> Место: %s,<br> Очки: %s,<br> Победы: %s,<br> Поражения: %s,<br> Очки отдыха: %s,<br> Присоединился: %s<br>";
-echo sprintf( $template, 
-        $b->nick,
-	$b->race,
-	$b->mode,
-	$b->carrier,
-	$b->season,	
-	implode(",", $leagues ),
-	$b->position,
-	$b->score,
-	$b->wins,
-	$b->losses,
-	$b->bonuspool,
-	$b->joined
+$properties = array( 
+        'Nickname: ', 		$b->nick,			
+	'Fav. Race:', 		$b->race,
+	'Fav. Mode:', 		$b->mode,
+	'Carrier games:', 	$b->carrier,
+	'Season games:',	$b->season,	
+	'Top leagues:',		implode(',', $leagues ),
+	'Position:',		$b->position,
+	'Score:',		$b->score,
+	'Wins:',		$b->wins,
+	'Losses:',		$b->losses,
+	'Bonus pool:',		$b->bonuspool,
+	'Joined:',		$b->joined,
+	'JSON representation:',	$b->Json()
 	);
+
+              
+for( $i = 0; $i < count($properties); $i+=2 ) {
+	$data .= sprintf( "<dt>%s</dt>\n", $properties[$i] );
+	$data .= sprintf( "<dd>%s</dt>\n", $properties[$i+1] );	
+}
+
+
+$html = <<< HTML
+
+<html>
+<head><meta http-equiv="content-type" content="charset=utf-8"/></head>
+<body>
+<h3>Starcraft II player stats</h3>
+<dl>
+%s</dl>
+</body>
+</html>
+
+HTML;
+
+echo sprintf( $html, $data );
+
 ?>
 
 
