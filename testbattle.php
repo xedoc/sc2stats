@@ -37,9 +37,27 @@ for( $i = 0; $i < count($properties); $i+=2 ) {
 $html = <<< HTML
 
 <html>
-<head><meta http-equiv="content-type" content="charset=utf-8"/></head>
+<head>
+<title>Starcraft II - player stats</title>
+<meta http-equiv="content-type" content="charset=utf-8"/>
+<style> 
+body {
+	font-family: Arial;
+	font-size: 11pt;
+	background-color:Beige;
+}
+dd { 
+	color:DarkSlateGray;
+	margin: 0 0 15px 0;
+}
+dt {
+	font-weight:bold;
+	color:Brown;
+}
+</style>
+</head>
 <body>
-<h3>Starcraft II player stats</h3>
+<h3>Starcraft II Player Stats</h3>
 <dl>
 %s</dl>
 </body>
