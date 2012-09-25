@@ -76,30 +76,16 @@ class BattleNet
 		}		
 		return $result;
 	}
-	public function Json(){
-		$json = '{"nick":"%s","season":%s,"mode":"%s","carrier":%s,"race":"%s","leagues":[%s],"position":%s,"score":%s,wins:%s,"losses":%s,"joined":"%s","bonuspool":%s}';
-		$leagues = Array();
+    public function Json(){
+        $params = array_merge(array_keys($this->profile_properties), array_keys($this->league_properties));
 
-		foreach( $this->leagues as $mode => $league ) {
-			$item = sprintf( '["%s","%s"]', $league, $mode );
-			$leagues[] = $item;
-		}
-		
-		$losses = $this->losses;
-		return sprintf( $json, 	$this->nick,
-					$this->season,
-					$this->mode,
-					$this->carrier,
-					$this->race,
-					implode(',', $leagues),
-					$this->position,
-					$this->score,
-					$this->wins,
-					( empty($losses)?'0':$losses ),
-					$this->joined,
-					$this->bonuspool );
-	}
+        $result = array();
+        foreach ($params as $value) {
+            $result[$value] = $this->$value;
+        }
 
+        return json_encode($result);
+    }
 }
 
 
