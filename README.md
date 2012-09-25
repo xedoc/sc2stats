@@ -1,3 +1,4 @@
+<code>
 <?php
 require_once('battle.php');
 
@@ -70,6 +71,6 @@ echo sprintf( $html, $data );
 ?>
 
 
-
+</code>
 
 
