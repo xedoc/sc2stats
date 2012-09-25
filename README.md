@@ -1,3 +1,5 @@
+**Usage Example:**
+
 <pre><code>
 &lt;?php
 require_once('battle.php');
